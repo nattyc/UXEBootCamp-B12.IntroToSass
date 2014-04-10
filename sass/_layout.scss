@@ -37,7 +37,7 @@ header{
     text-align: center;
   }
   .header-logo{
-    margin: 0 auto 1em;
+    margin: .0 auto 2em;
     display: block;
   }
 }
@@ -49,15 +49,15 @@ header{
 }
 
 .page-head{
-  $image-gradient-color-top: teal;
-  $transparency-top: .6;
-  $image-gradient-color-bottom: purple;
+  $image-gradient-color-top: $muted-yellow;
+  $transparency-top: .9;
+  $image-gradient-color-bottom: $muted-yellow;
   $transparency-bottom: .6;
   $vertical-angle: 180deg;
 
-  $image-gradient-color-left: purple;
+  $image-gradient-color-left: $muted-yellow;
   $transparency-left: .9;
-  $image-gradient-color-right: yellow;
+  $image-gradient-color-right: $muted-yellow;
   $transparency-right: .8;
   $horizontal-angle: 90deg;
 
@@ -94,7 +94,7 @@ header{
       position: relative;
       color: white;
       font-weight: 800;
-      background-color: transparentize(black, .8);
+      background-color: transparentize(black, .9);
       z-index: 999;
       }
     //color overlay shiz
@@ -113,13 +113,12 @@ header{
     }
   }
 
-
 }
 
 .clients{
     @include outer-container;
-    height: 25em;
-    padding-top: 1.5em;
+    height: 30em;
+    padding-top: 3em;
   }
 
 $clients: billabong, stance, rvca, electric;
@@ -149,3 +148,11 @@ $clients: billabong, stance, rvca, electric;
    }
  }
 
+//next section head
+.process{
+  @extend .page-head;
+  background: url('../img/factory.jpg');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}

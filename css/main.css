@@ -734,7 +734,7 @@ header nav {
   text-align: center;
 }
 header .header-logo {
-  margin: 0 auto 1em;
+  margin: .0 auto 2em;
   display: block;
 }
 
@@ -752,7 +752,7 @@ header .header-logo {
   clear: both;
 }
 
-.page-head {
+.page-head, .process {
   background-image: url("../img/top-bg.jpg");
   background-image: url("../img/top-bg.jpg");
   background-size: cover;
@@ -764,10 +764,10 @@ header .header-logo {
   display: table;
   height: 30em;
 }
-.page-head img {
+.page-head img, .process img {
   width: 100%;
 }
-.page-head h1 {
+.page-head h1, .process h1 {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -781,16 +781,16 @@ header .header-logo {
   color: #FFF;
   z-index: 999;
 }
-.page-head h1:last-child {
+.page-head h1:last-child, .process h1:last-child {
   margin-right: 0;
 }
 @media screen and (max-width: 480px) {
-  .page-head h1 {
+  .page-head h1, .process h1 {
     font-size: 48.82813px;
     font-size: 3.05176rem;
   }
 }
-.page-head p {
+.page-head p, .process p {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -800,29 +800,29 @@ header .header-logo {
   position: relative;
   color: white;
   font-weight: 800;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   z-index: 999;
 }
-.page-head p:last-child {
+.page-head p:last-child, .process p:last-child {
   margin-right: 0;
 }
 @media screen and (max-width: 480px) {
-  .page-head p {
+  .page-head p, .process p {
     float: left;
     display: block;
     margin-right: 7.42297%;
     width: 100%;
     margin-left: 0%;
   }
-  .page-head p:last-child {
+  .page-head p:last-child, .process p:last-child {
     margin-right: 0;
   }
 }
-.page-head .overlay {
-  background-color: rgba(0, 128, 128, 0.4);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 128, 128, 0.4)), color-stop(100%, rgba(128, 0, 128, 0.4)));
-  background-image: -webkit-linear-gradient(-450deg, rgba(0, 128, 128, 0.4), rgba(128, 0, 128, 0.4));
-  background-image: linear-gradient(180deg,rgba(0, 128, 128, 0.4), rgba(128, 0, 128, 0.4));
+.page-head .overlay, .process .overlay {
+  background-color: rgba(191, 191, 64, 0.1);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(191, 191, 64, 0.1)), color-stop(100%, rgba(191, 191, 64, 0.4)));
+  background-image: -webkit-linear-gradient(-450deg, rgba(191, 191, 64, 0.1), rgba(191, 191, 64, 0.4));
+  background-image: linear-gradient(180deg,rgba(191, 191, 64, 0.1), rgba(191, 191, 64, 0.4));
   display: block;
   position: absolute;
   top: 0px;
@@ -830,12 +830,12 @@ header .header-logo {
   bottom: 0px;
   left: 0px;
 }
-.page-head .overlay:after {
+.page-head .overlay:after, .process .overlay:after {
   content: '';
-  background-color: rgba(128, 0, 128, 0.1);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(128, 0, 128, 0.1)), color-stop(100%, rgba(255, 255, 0, 0.2)));
-  background-image: -webkit-linear-gradient(-360deg, rgba(128, 0, 128, 0.1), rgba(255, 255, 0, 0.2));
-  background-image: linear-gradient(90deg,rgba(128, 0, 128, 0.1), rgba(255, 255, 0, 0.2));
+  background-color: rgba(191, 191, 64, 0.1);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(191, 191, 64, 0.1)), color-stop(100%, rgba(191, 191, 64, 0.2)));
+  background-image: -webkit-linear-gradient(-360deg, rgba(191, 191, 64, 0.1), rgba(191, 191, 64, 0.2));
+  background-image: linear-gradient(90deg,rgba(191, 191, 64, 0.1), rgba(191, 191, 64, 0.2));
   display: block;
   position: absolute;
   top: 0px;
@@ -849,8 +849,8 @@ header .header-logo {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  height: 25em;
-  padding-top: 1.5em;
+  height: 30em;
+  padding-top: 3em;
 }
 .clients:before, .clients:after {
   content: " ";
@@ -979,4 +979,11 @@ header .header-logo {
 }
 .client-box.electric:hover {
   background-color: #999933;
+}
+
+.process {
+  background: url("../img/factory.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
 }
