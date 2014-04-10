@@ -1,4 +1,5 @@
 $mobile: new-breakpoint(max-width 480px 4);
+$tablet: new-breakpoint(max-width 768px 8);
 
 
 //Positioning Mixins
@@ -17,6 +18,12 @@ $mobile: new-breakpoint(max-width 480px 4);
   margin-right: auto;
 }
 
+@mixin big-bg{
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
 
 //Global layout styles
 body{
@@ -25,16 +32,26 @@ body{
 
 //Navigation layout
 header{
+  .header-block{
+    position: relative;
+    top: 1.5em;
+    padding-top: 6.75em;
+    @include outer-container;
+  }
   background-color: $primary-grey;
   width: 100%;
-  height: 12em;
+  height: 100%;
   a{
-    margin: 1.5em 1.5em;
-    padding-top: 1em;
+    margin: 0 1.5em;
+    @include media($mobile) {
+        display:block;
+        }
   }
   nav{
     @include vertical-align;
     text-align: center;
+    @include row();
+
   }
   .header-logo{
     margin: .0 auto 2em;
@@ -49,6 +66,8 @@ header{
 }
 
 .page-head{
+
+  //CRAZY OVERLAY SHIT
   $image-gradient-color-top: $muted-yellow;
   $transparency-top: .9;
   $image-gradient-color-bottom: $muted-yellow;
@@ -61,10 +80,24 @@ header{
   $transparency-right: .8;
   $horizontal-angle: 90deg;
 
+  .overlay {
+      @include linear-gradient($vertical-angle, transparentize($image-gradient-color-top, $transparency-top),
+      transparentize($image-gradient-color-bottom, $transparency-bottom));
+      display: block;
+      @include position(absolute, 0px 0px 0px 0px);
+
+      &:after {
+        content: '';
+        @include linear-gradient($horizontal-angle, transparentize($image-gradient-color-left, $transparency-left),
+          transparentize($image-gradient-color-right, $transparency-right));
+        display: block;
+        @include position(absolute, 0px 0px 0px 0px);
+    }
+  }
+
+  //ACTUAL CONTENT
   @include background-image(url("../img/top-bg.jpg"));
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
+  @include big-bg;
   padding: 12em 0 12em 0;
   position: relative;
   width: 100%;
@@ -98,20 +131,6 @@ header{
       z-index: 999;
       }
     //color overlay shiz
-    .overlay {
-      @include linear-gradient($vertical-angle, transparentize($image-gradient-color-top, $transparency-top),
-      transparentize($image-gradient-color-bottom, $transparency-bottom));
-      display: block;
-      @include position(absolute, 0px 0px 0px 0px);
-
-      &:after {
-        content: '';
-        @include linear-gradient($horizontal-angle, transparentize($image-gradient-color-left, $transparency-left),
-          transparentize($image-gradient-color-right, $transparency-right));
-        display: block;
-        @include position(absolute, 0px 0px 0px 0px);
-    }
-  }
 
 }
 
@@ -121,38 +140,11 @@ header{
     padding-top: 3em;
   }
 
-$clients: billabong, stance, rvca, electric;
-
-.client-box {
-   // client div properties
-   background-size: 100%;
-   margin-top: 1em;
-
-   // client setup
-   @each $client in $clients {
-        &.#{$client} {
-             background-image:url("../img/clients/#{$client}.jpg");
-             background-size: 100%;
-             @include span-columns(3);
-             @include media($mobile) {
-              @include span-columns(2);
-              }
-             height: 15em;
-             background-position: cover;
-             background-repeat: no-repeat;
-             content: "";
-             &:hover{
-              background-color: darken($muted-yellow, 10);
-             }
-        }
-   }
- }
+////CLIENT MODULE in modules.scss
 
 //next section head
 .process{
   @extend .page-head;
   background: url('../img/factory.jpg');
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
+  @include big-bg;
 }

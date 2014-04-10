@@ -1,0 +1,26 @@
+$clients: billabong, stance, rvca, electric;
+
+.client-box {
+   // client div properties
+   background-size: 100%;
+   margin-top: 1em;
+
+   // client setup
+   @each $client in $clients {
+        &.#{$client} {
+             background-image:url("../img/clients/#{$client}.jpg");
+             background-size: 100%;
+             @include span-columns(3);
+             @include media($mobile) {
+              @include fill-parent();
+              }
+             height: 15em;
+             background-position: cover;
+             background-repeat: no-repeat;
+             content: "";
+             &:hover{
+              background-color: darken($muted-yellow, 10);
+             }
+        }
+   }
+ }
